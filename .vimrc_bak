@@ -45,14 +45,14 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 Plugin 'bling/vim-airline' "状态栏
 set laststatus=2
 
-Plugin 'fholgado/minibufexpl.vim' 
-let g:miniBufExplMapWindowNavVim = 1 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplModSelTarget = 1 
-let g:miniBufExplMoreThanOne=0 
-map <F11> :MBEbp<CR>
-map <F12> :MBEbn<CR>
+""Plugin 'fholgado/minibufexpl.vim' 
+""let g:miniBufExplMapWindowNavVim = 1 
+""let g:miniBufExplMapWindowNavArrows = 1 
+""let g:miniBufExplMapCTabSwitchBufs = 1 
+""let g:miniBufExplModSelTarget = 1 
+""let g:miniBufExplMoreThanOne=0 
+""map <F11> :MBEbp<CR>
+""map <F12> :MBEbn<CR>
 
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 " The following are examples of different formats supported.
