@@ -87,6 +87,8 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+syntax on
+
 set nu
 set ts=4
 set expandtab 
@@ -108,11 +110,11 @@ endfunc
 
 map title :call CFileTitle()<CR>
 
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
+"inoremap { {}<LEFT>
+"inoremap [ []<LEFT>
 "inoremap ( ()<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
+"inoremap " ""<LEFT>
+"inoremap ' ''<LEFT>
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -124,3 +126,11 @@ endif
 
 set showmatch
 set smartcase
+
+"vimgdb
+run macros/gdb_mappings.vim
+set asm=0
+set gdbprg=gdb
+set splitbelow
+set splitright
+
