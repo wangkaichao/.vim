@@ -71,7 +71,7 @@ Plugin 'tpope/vim-fugitive'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
-
+Plugin 'Valloric/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -90,6 +90,7 @@ filetype plugin indent on    " required
 syntax on
 
 set nu
+set backspace=2
 set ts=4
 set expandtab 
 set smartindent
@@ -133,4 +134,39 @@ set asm=0
 set gdbprg=gdb
 set splitbelow
 set splitright
+
+" YouCompleteme
+"" 为当前补全选项在vim顶部增加预览窗口，用来显示函数原型等信息，
+"" 如果vim的completeopt已经设置为prieview则不会有影响，
+"" :h completeopt查看相关信息，用:set completeopt?查看当前vim的设置，默认为0
+let g:ycm_add_preview_to_completeopt = 0
+"" 开启YCM的显示诊断信息的功能，0表示关闭
+let g:ycm_show_diagnostics_ui = 0
+"" 
+let g:ycm_server_log_level = 'info'
+"" 设置要在标示符补全列表中显示的候选项的最小字符数，
+"" 0表示没有限制，对语义补全无影响
+let g:ycm_min_num_identifier_candidate_chars = 2
+"" 让YCM可以收集注释中的文字来分析以用于补全，默认为0，
+"" 只能收集代码中的文字来分析
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+"" 打开字符串自动补全功能。0代表关闭。
+"" 这用于c系语言中#include后列出头文件很有用，如果设置为0则关闭文件名补全功能
+let g:ycm_complete_in_strings = 1
+"" 设置强制启用语义补全的快捷键，有些系统函数如fopen, strcpy如果不智能提示，可以按+键
+let g:ycm_key_invoke_completion = '<C-Space>'
+"" 设置YCM语义触发器关键字
+let g:ycm_semantic_triggers =  {
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ }
+"" 文件类型白名单，vim打开这些类型文件时会开启YCM。*表示所有文件类型
+let g:ycm_filetype_whitelist = { '*': 1 }
+"" 设置.ycm_extra_conf.py的全局路径，避免每次都需要复制到当前目录.
+"" 若为空则每次都需复制.ycm_extra_conf.py文件到当前目录
+"" cp ~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py ~/
+let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+"" 允许自动加载.ycm_extra_conf.py，不再提示.
+"" 设置为1，则每次都提示用于确认该文件是否安全
+let g:ycm_confirm_extra_conf = 0
 
